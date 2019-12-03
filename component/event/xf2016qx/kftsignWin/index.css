@@ -1,0 +1,171 @@
+/**
+ * project：新房移动端七夕节20160809                        
+ * author: camille             
+ * branch： HFPC-65                                                                              
+ * Date：2016-07-27                                                                               
+ */
+
+/*看房团，活动四*/
+
+/*注册，登录*/
+.kftsign-window {
+    width: 320px;
+    background: #fff;
+}
+.kftsign-box {
+    position: relative;
+    padding: 15px 25px;
+}
+.kftsign-window .kftsign-header {
+    padding-top: 15px;
+}
+.kftsign-header h3 {
+    text-align: center;
+    color: #ff8447;
+    font-size: 18px;
+}
+.kftsign-header .kftsign-tip {
+    padding: 15px 0;
+    color: #666666;
+    font-size: 12px;
+    text-align: center;
+}
+.kftsign-box .kftsign-form .form-ul {
+    padding: 0 0 5px;
+}
+.form-ul li input {
+    height: 30px;
+}
+.tel-icon, .name-icon, .person-number-icon, .tpyzm-icon, .close-window-btn, .valid-icon {
+    display: inline-block;
+    width: 10%;
+    height: 35px;
+    line-height: 35px;
+    background: url("/component/event/xf2016qx/common/images/formele.png") no-repeat;
+    background-size: 36px auto;
+    vertical-align: middle;
+}
+.name-icon {
+    background-position: 0 8px;
+}
+.tel-icon {
+    background-position: 0 -107px;
+}
+.person-number-icon {
+    position: relative;
+    background-position: 0 -50px;
+}
+.tpyzm-icon {
+    background-position: 0 -168px;
+}
+.name-input, .tel-input, .person-number-input, .tpyzm-input {
+    position: relative;
+    display: inline-block;
+    padding: 8px 0;
+    width: 86%;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #d0d0d0;
+}
+.person-number-input select {
+    border: none;
+    width: 85px;
+}
+.tpyzm-input img {
+    display: inline-block;
+    width: 98px;
+    height: 32px;
+    vertical-align: middle;
+    -webkit-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+}
+.error-tips {
+    margin: 15px auto 0;
+    padding: 0 10px;
+    width: 60%;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: baseline;
+    text-align: center;
+    background: #fff9ea;
+    -webkit-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #ff6901;
+}
+.error-tips .valid-icon {
+    background-position: 0 -506px;
+}
+.error-tips .valid-tel {
+    display: inline-block;
+}
+.submit-kftsign-btn .submit-sign-btn {
+    display: block;
+    margin: 20px auto 20px;
+    padding: 8px 15px;
+    width: 82%;
+    text-align: center;
+    background-color: #ff853b;
+    -webkit-border-radius: 22px;
+    -ms-border-radius: 22px;
+    -o-border-radius: 22px;
+    -moz-border-radius: 22px;
+    border-radius: 22px;
+    color: #fff;
+    font-size: 16px;
+}
+.kftsign-box .close-window-btn {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    width: 25px;
+    height: 25px;
+    text-indent: -9999px;
+    background-position: 0 -453px;
+}
+
+/*报名成功还是失败？*/
+.kftsign-box .success-icon, .kftsign-box .fail-icon {
+    margin: 0 auto;
+    width: 17%;
+    height: 63px;
+    background: url("/component/event/xf2016qx/common/images/formele.png") no-repeat;
+    background-size: 40px auto;
+    background-position: 0 -796px;
+    text-align: center;
+}
+.kftsign-box .fail-icon {
+    background-position: 0 -936px;
+}
+.kftsign-box h3 {
+    text-align: center;
+    font-size: 18px;
+    color: #ff8447;
+}
+.kftsign-box .friend-tips {
+    margin: 15px auto 25px;
+    font-size: 13px;
+    color: #666666;
+    text-align: center;
+}
+.kftsign-box .more-event {
+    display: block;
+    margin: 20px auto 20px;
+    padding: 8px 15px;
+    width: 82%;
+    text-align: center;
+    background-color: #ff8447;
+    -webkit-border-radius: 22px;
+    -ms-border-radius: 22px;
+    -o-border-radius: 22px;
+    -moz-border-radius: 22px;
+    border-radius: 22px;
+    color: #fff;
+    font-size: 18px;
+}

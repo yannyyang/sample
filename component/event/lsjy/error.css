@@ -1,0 +1,26 @@
+.page_content{
+    padding:4.285714rem 0.982143rem 0;
+    text-align: center;
+    .error_pic{
+        width:3.464286rem;
+        height:3.464286rem;
+        background: url('images/ico_error.png') no-repeat;
+        background-size: cover;
+        margin:0 auto 0.714286rem;
+    }
+    .error_text{
+        color:#666666;
+        font-size: 0.571429rem;
+    }
+    .back_main_btn{
+        color:#fff;
+        font-size: 0.642857rem;
+        display: block;
+        width:100%;
+        height:1.535714rem;
+        border-radius: 0.785714rem;
+        line-height: 1.535714rem;
+        background: #ff853b;
+        margin-top: 1.321429rem;
+    }
+}

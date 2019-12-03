@@ -1,0 +1,49 @@
+
+<!-- 弹窗 - 报名 -->
+<div id="popReg" class="popup_reg hide">
+    <form id="msg_login">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td class="tips">
+                        <div class="text_warn hide"><i><img src="/static/event/wedhome/images/icon_warn.png"></i><span></span></div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="input_wrap">
+                            <input class="input_box" type="text" id="name" placeholder="请输入预约人中文姓名" name="name">
+                            <span id="mobileStatus" class="valid_success_hide"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="input_wrap">
+                            <input class="input_box" type="text" id="mobileInfo" placeholder="请输入11位手机号码" name="sMobile" value="<?php if($sMobile!= ""){echo $sMobile; }?>" />
+                            <span id="mobileStatus" class="valid_success_hide"></span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="input_wrap captcha_txt_box fl"> 
+                            <input class="input_box" type="text" id="identifyCode" placeholder="请输入动态验证码" name="sCaptcha">
+                        </div>
+                        <input type="hidden" id="sendMSURL" value="<?php echo $sSendSMSURL ?>">
+                        <a href="javascript:;" class="btn_send_verify_code fr" id="sendIdentifyCode">发送验证码</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>                        
+                        <input type="hidden" id="regUrl" value="<?php echo $sRegUrl ?>">
+                        <button type="button" class="btn btn_reg">
+                            享平安好房员工价
+                        </button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </form>
+</div>

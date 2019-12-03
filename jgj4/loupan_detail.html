@@ -1,0 +1,450 @@
+<?php $this->component('/common/header');?>
+
+<script src="/static/common/rem.js" feather-position-head></script>
+<link rel="stylesheet" type="text/css" href="/static/event/jgj4/detail/detail.css">
+
+<?php
+if (!empty($fScore)) {
+    $starVal = '';
+
+    if ($fScore <= 0) {
+        $starVal = 'star_nv_halfno';
+    } elseif ($fScore > 0 && $fScore < 1) {
+        $starVal = 'star_nv_half0';
+    } elseif ($fScore > 1 && $fScore < 2) {
+        $starVal = 'star_nv_half1';
+    } elseif ($fScore > 2 && $fScore < 3) {
+        $starVal = 'star_nv_half2';
+    } elseif ($fScore > 3 && $fScore < 4) {
+        $starVal = 'star_nv_half3';
+    } elseif ($fScore > 4 && $fScore < 5) {
+        $starVal = 'star_nv_half4';
+    } else {
+        $starVal = 'star_nv' . (float)$fScore;
+    }
+}
+?>
+<div id="details-scroll" style="position:absolute;width:100%;">
+    <div style="padding-bottom: 1.571429rem;">
+        <section class="details-main details-main-new">
+            <div class="details_main_top">
+                <?php if($aCoverImg['iTotalNum']) { ?>
+                    <?php if(count($aCoverImg['list']) == 1) { ?>
+                    <div class="banner_swiper">
+                        <?php foreach($aCoverImg['list'] as $imgVal) { ?>
+                            <a href="<?php echo $imgVal['imgDetail'];?>">
+                                <img class="swiper-lazy" data-src="<?php echo $imgVal['imgUrl'];?>" src="//static.anhouse.com/H5/naaz/common/default/loading/img_loading_720_540_847d67c.png">
+                            </a>
+                        <?php };?>
+                    </div>
+                    <?php } else { ?>
+                    <div class="banner_swiper swiper-container">
+                        <ul class="swiper-wrapper">
+                            <?php foreach($aCoverImg['list'] as $imgVal) { ?>
+                                <li class="swiper-slide">
+                                    <a href="<?php echo $imgVal['imgDetail'];?>">
+                                        <img class="swiper-lazy" data-src="<?php echo $imgVal['imgUrl'];?>" src="//static.anhouse.com/H5/naaz/common/default/loading/img_loading_720_540_847d67c.png">
+                                    </a>
+                                </li>
+                            <?php };?>
+                        </ul>
+                    </div>
+                    <?php };?>
+                <?php } else { ?>
+                    <div class="no_img"><img src="/static/event/jgj4/detail/images/no_img.jpg"/></div>
+                <?php };?>
+
+                <div class="tag_mask">
+                    <div class="tag_wrap">
+                        <?php foreach($aDetail['tags'] as $key => $value) { ?>
+                            <span><?php echo $value;?></span>
+                        <?php }?>
+                    </div>
+                    <?php if(!empty($aCoverImg['list']) && count($aCoverImg['list']) == 1 ) { ?>
+                        <div class="pagination pagination_style">1&nbsp;/&nbsp;1</div>
+                    <?php } else { ?>
+                        <div class="swiper-pagination pagination_style" style="left:88%;"></div>
+                    <?php }?>
+                </div>
+            </div>
+            <!-- start:楼盘主信息 -->
+            <div class="common_style house_mod re_mod_bgcolor">
+                <div class="house_feature">
+                    <?php if($aDetail['hasPano']) {?>
+                    <a href="<?php echo $aDetail['aExtUrl']['sVRUrl']; ?>" class="vr_btn"></a>
+                    <?php } ?>
+                    <?php if($aDetail['hasVideo']) {?>
+                    <a href="<?php echo $aDetail['aExtUrl']['sVideoUrl']; ?>" class="video_btn"></a>
+                    <?php } ?>
+                </div>
+                <div class="itemcom_o">
+                    <h2 class="main_tit"><?php echo $aDetail['title'];?>
+                        <?php if(!empty($aDetail['salesState'])) {?>
+                            <?php if( $aDetail['salesState'] == 3 ) { ?>
+                                <span>(在售)</span>
+                            <?php } elseif( $aDetail['salesState'] == 1 ) { ?>
+                                <span>(待售)</span>
+                            <?php } elseif( $aDetail['salesState'] == 6 ) { ?>
+                                <span>(售罄)</span>
+                            <?php };?>
+                        <?php } ?>
+                    </h2>
+                    <div class="house_price">
+                        <span><?php echo $aDetail['unitPrice'];?></span><!-- 
+                     --><span><?php echo $aDetail['totalPrice'];?></span>
+                    </div>
+                </div>
+                <div class="itemcom_o">
+                    <p><?php echo $aDetail['openTime'];?><?php echo $aDetail['openStatus'];?></p>
+                </div>
+                <div class="house_site itemcom_t">
+                    <p class="txtEllipsis"><?php echo $aDetail['region'];?>-<?php echo $aDetail['section'];?>&nbsp;&nbsp;<?php echo $aDetail['address'];?></p>
+                    <a href="<?php echo $aDetail['aExtUrl']['sAroundUrl'];?>"><i></i></a>
+                </div>
+            </div>
+            <!-- end:楼盘主信息 -->
+            <!-- start:优惠推荐 -->
+            <div class="common_style spread_watch re_mod_bgcolor">
+                <?php if(!empty($aDetail['privilege']['sDesc'])) { ?>
+                    <a href="javascript:;" class="activity_text itemcom_o clearfix" data-type="8">
+                        <div class="spread_l fl">
+                            <span class="tehui_tit">最新优惠</span>
+                        </div>
+                        <div class="spread_r fr"><?php echo $aDetail['privilege']['sDesc'];?></div>
+                    </a>
+                <?php };?>
+                <?php if(!empty($kft['applyUrl'])) { ?>
+                    <a href="javascript:;" class="kft_btn itemcom_t clearfix" data_id="<?php echo $kft['lineID'];?>">
+                        <div class="spread_l fl">
+                            <span class="kanfang_tit" data_sTitle="<?php echo $kft['title'];?>">看房团</span>
+                        </div>
+                        <div class="spread_r fr"><?php echo $kft['title'];?><i></i></div>
+                    </a>
+                <?php };?>
+            </div>
+            <!-- end:优惠推荐 -->
+            <!-- start:楼盘动态及品房客 -->
+            <div class="common_style recent_situation re_mod_bgcolor">
+                <h2 class="mod_tit">
+                    <?php if(!empty($aDetail['dynamicStatus']) && !empty($aDetail['reviewer'])) { ?>
+                        <ul class="mod_tit_ul clearfix">
+                            <li class="two_level p_on"><span class="tab_txt">楼盘动态</span></li>
+                            <li class="two_level"><span class="tab_txt">品房客</span></li>
+                        </ul>
+                    <?php };?>
+                    <?php if(!empty($aDetail['dynamicStatus']) && empty($aDetail['reviewer'])) { ?>
+                        <div class="one_level">
+                            <div class="lev_line"><span>楼盘动态</span></div>
+                        </div>
+                    <?php };?>
+                    <?php if(empty($aDetail['dynamicStatus']) && !empty($aDetail['reviewer'])) { ?>
+                        <div class="one_level">
+                            <div class="lev_line"><span>品房客</span></div>
+                        </div>
+                    <?php };?>
+                </h2>
+                <ul class="mod_page_ul recent_ul">
+                    <?php if(!empty($aDetail['dynamicStatus'])) { ?>
+                        <li class="lp_dynamic di_cur itemcom_o">
+                            <a href="<?php echo $aDetail['dynamicStatus']['url'];?>" class="">
+                                <h3 class="txtEllipsis"><?php echo strip_tags($aDetail['dynamicStatus']['title']);?></h3>
+                                <p><?php echo $aDetail['dynamicStatus']['content'];?></p>
+                            </a>
+                        </li>
+                    <?php };?>
+                    <?php if(!empty($aDetail['reviewer'])) { ?>
+                        <li class="pfk_area itemcom_o <?php echo empty($aDetail['dynamicStatus']) ? 'di_cur' : ''; ?>">
+                            <a href="<?php echo $aDetail['reviewer']['url'];?>" class="clearfix">
+                                <div class="pfk_img fl"><img src="<?php echo $aDetail['reviewer']['imgUrl'];?>"></div>
+                                <div class="pfk_txt">
+                                    <h3 class="txtEllipsis"><?php echo $aDetail['reviewer']['title'];?></h3>
+                                    <p><?php echo $aDetail['reviewer']['content'];?></p>
+                                </div>
+                            </a>
+                        </li>
+                    <?php };?>
+                </ul>
+            </div>
+            <!-- end:楼盘动态及品房客 -->
+            <!-- start:通知我 -->
+            <div class="timely_notice">
+                <a href="javascript:;" class="on_sale" data-type="1"><span>开盘通知我</span></a><!--
+             --><a href="javascript:;" class="change_price" data-type="2"><span>变价通知我</span></a>
+            </div>
+            <!-- end:通知我 -->
+            <!-- start:户型介绍 -->
+            <?php if(!empty($aDetail['layoutInfos'])) { ?>
+            <div class="details-door common_style house_type re_mod_bgcolor">
+                <h2>
+                    <div class="one_level">
+                        <div class="lev_line"><span>户型介绍</span></div>
+                    </div>
+                </h2>
+                <div>
+                    <div class="details-door-contant  house_type_content" id="details-door-contant">
+                        <ul class="details-door-ul house_type_ul clearfix">
+                            <?php foreach($aDetail['layoutInfos']['list'] as $key => $v) { ?>
+                            <li class="fl  house_type_items">
+                                <p class="house_type_title">
+                                    <?php echo $v['sName'];?>
+                                </p>
+                                <a class="block-a" href="<?php echo $v['sLayoutDetailUrl'];?>">
+                                    <img class="details-door-img" src="<?php echo $v['big_img'];?>">
+                                    <?php if(!empty($v['hasPanorama'])) { ?>
+                                        <span class="vr_icon">VR</span>
+                                    <?php };?>
+                                </a>
+                                <p class="house_type_info">
+                                    <?php echo $v['sShowName'];?>&nbsp;<?php echo $v['sStructureArea'];?>
+                                </p>
+                                <p class="price">
+                                    <span class="price_num"><?php echo $v['sTotalPrice']; ?></span>
+                                        <?php echo $v['sUnit']; ?>
+
+                                    <?php if($v['iMainHouseType'] == 1) {?>
+                                        <span class="zhutui_icon">主推</span>
+                                    <?php };?>
+                                </p>
+                            </li>
+                            <?php };?>
+                        </ul>
+                    </div>
+                </div>
+                <div class="com_more_box mt20">
+                    <a href="<?php echo $aDetail['aExtUrl']['sLayoutList'];?>" class="more_btn_new">全部户型</a>
+                </div>
+            </div>
+            <?php };?>
+            <!-- end:户型介绍 -->
+            <!-- start:商贷参考 -->
+            <?php if(!empty($aDetail['aLoanInfo'])) { ?>
+            <div class="common_style sd_consult re_mod_bgcolor">
+                <h2>
+                    <div class="one_level">
+                        <div class="lev_line"><span>商贷参考</span></div>
+                    </div>
+                </h2>
+                <ul class="clearfix">
+                    <li>
+                        <p><?php echo $aDetail['aLoanInfo']['iTotalPrice'] == 0 ? '500万' :
+                            $aDetail['aLoanInfo']['iTotalPrice'].'万';?></p>
+                        <span class="payment_type">总价参考</span>
+                    </li>
+                    <li>
+                        <?php if($aDetail['aLoanInfo']['iDownPayment'] != 0) { ?>
+                            <p><?php echo $aDetail['aLoanInfo']['iDownPayment'];?>万</p>
+                        <?php } else { ?>
+                            <p>150万</p>
+                        <?php };?>
+                        <span class="payment_type">首付（3成）</span>
+                    </li>
+                    <li>
+                        <?php if($aDetail['aLoanInfo']['iMonthLoan'] != 0) { ?>
+                            <p><?php echo $aDetail['aLoanInfo']['iMonthLoan'];?>元</p>
+                        <?php } else { ?>
+                            <p>22905元</p>
+                        <?php };?>
+                        <span class="payment_type">月供（20年）</span>
+                    </li>
+                </ul>
+                <div class="com_more_box itemcom_o">
+                    <a href="<?php echo $aDetail['aExtUrl']['sCalculate'];?>" class="more_btn_new">房贷计算</a>
+                </div>
+            </div>
+            <?php };?>
+            <!-- end:商贷参考 -->
+            <!-- start:点评，楼盘信息，周边 -->
+            <div class="common_style recent_situation re_mod_bgcolor">
+                <h2 class="mod_tit">
+                    <ul class="mod_tit_ul clearfix">
+                        <li class="two_level p_on"><span class="tab_txt">楼盘信息</span></li>
+                        <li class="two_level"><span class="tab_txt">位置周边</span></li>
+                    </ul>
+                </h2>
+                <ul class="mod_page_ul">
+                    <li class="house_info di_cur">
+                        <div class="info_detail itemcom_t clearfix">
+                            <div class="detail_left">
+                                <p>物业类型:<span><?php echo !empty($aDetail['aLoupanDesc']['sPropType']) ? $aDetail['aLoupanDesc']['sPropType'] : '' ;?></span></p>
+                                <p>
+                                    产权年限:<span><?php echo !empty($aDetail['aLoupanDesc']['sPropertyRight']) ? $aDetail['aLoupanDesc']['sPropertyRight'] : '' ;?></span>
+                                </p>
+                            </div>
+                            <div class="detail_right">
+                                <p>主推户型:<span><?php echo $aDetail['aLoupanDesc']['sMainHouseType'];?></span></p>
+                                <p class="submit_time">交房日期:<span><?php echo $aDetail['aLoupanDesc']['sGetHouseTime'];?></span></p>
+                            </div>
+                        </div>
+                        <div class="com_more_box">
+                            <a href="<?php echo $aDetail['aExtUrl']['sLoupanInfoUrl'];?>" class="more_btn_new">查看全部</a>
+                        </div>
+                    </li>
+                    <li class="around_info">
+                        <div class="map_box">
+                            <a href="<?php echo $aDetail['aExtUrl']['sAroundUrl'];?>">
+                                <div id="J_map"></div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- end:点评，楼盘信息，周边 -->
+
+            <div class="common_style house_recommendation div_ps re_mod_bgcolor">平安好房平台上所展示的所有楼盘信息仅供参考，最终以开发商提供及政府部门登记备案为准，请您购买时谨慎核实相关信息。
+            </div>
+
+        </section>
+        
+    </div>
+</div>
+<?php if($iCashApiOpen){ ?>
+<a href="javascript:;" class="btn_lxj" data-autofax="true" data-eventstr="JGJ_H_CLICK_LXJ" id="J_get_money"></a>
+<?php }?>
+<footer class="footer-tel">
+    <div id="J_call" class="call"><span></span>电话咨询</div>
+    <?php if(!$iOrderStatus){ ?>
+        <button class="bookroom_btn" data-autofax="true" data-eventstr="JGJ_H_CLICK_YYKF">预约报名</button>
+    <?php }else{ ?>
+        <button class="bookroom_btn disabled" disabled="disabled">已预约</button>
+    <?php }?>
+</footer>
+
+<input type="hidden" value="<?php echo $aDetail['id'] ;?>" id="J_loupan"/>
+<input type="hidden" value="2" data-name="xf" id="T_loupan"/>
+<input type="hidden" value="<?php echo $sMemberDomain ;?>" id="J_Domain"/>
+<div class="page_mask"></div>
+<!-- 电话咨询 -->
+<section id="J_phone" class="cellphone" style="display:none;">
+    <h3><?php echo $sPhoneNum ;?></h3>
+    <div>
+        <a class="cancel" href="javascript:void(0);" id="J_cancel_callPhone">取消</a>
+        <a href="tel:<?php echo $sPhoneNum ;?>" id="J_callPhone" data-tel="<?php echo $sPhoneNum ;?>" data-autofax="true" data-eventstr="JGJ_H_CLICK_PHONE">立即拨打</a>
+    </div>  
+</section>
+
+<!-- loading -->
+<section id="J_prize" class="xj_prize" style="display:none;">
+    <h3>恭喜您</h3>
+    <p class="result">获得现金<i>0.1</i>元</p>
+    <p class="info">现金直接发放到您的旺财账户</p>
+    <a href="javascript:void(0);"></a>  
+</section>
+
+<!-- 现金结果 -->
+<section id="J_loading" class="loading" style="display:none;">
+    <h3></h3>
+    <span></span>
+    <p>正在领取现金…</p>  
+</section>
+
+<!-- 订阅 dialog -->
+<div class="xf_detail_dialog dynamic_dialog" style="display:none;">
+    <div class="title">变价通知我</div>
+    <a href="javascript:void(0);" class="dialog_close">&times;</a>
+    <p class="tips">变价消息会通过短信通知到您</p>
+    <form class="J_dynamic_form">
+        <div class="dialog_content">
+            <input type="text" placeholder="请输入手机号码" class="phone_num_input" id="J_dongtai_tel"/>
+            <input type="text" placeholder="请输入验证码" class="verify_code_input" id="J_captcha"/>
+            <a href="javascript:;" class="btn_send_verify_code" id="sendIdentifyCode">获取验证码</a>
+            <i class="phone_bg"></i>
+            <i class="verify_code_bg"></i>
+        </div>
+    </form>
+    <p class="error_text"><i></i>请输入正确的手机号</p>
+    <div class="dialog_button">
+        <a href="javascript:;" class="cancel_btn">取&nbsp;消</a>
+        <a href="javascript:;" class="sure_btn dynamic_sure_btn">确&nbsp;定</a>
+    </div>
+</div>
+<!-- 获取优惠 dialog -->
+<div class="xf_detail_dialog djhd_dialog" style="display:none;">
+    <div class="title">获取优惠</div>
+    <a href="javascript:void(0);" class="dialog_close">&times;</a>
+    <form class="J_djhd_form">
+        <div class="dialog_content">
+            <input type="text" placeholder="请输入姓名" class="name_input" id="J_name"/>
+            <input type="text" placeholder="请输入手机号码" class="djhd_num_input" id="J_hd_tel"/>
+            <input type="text" placeholder="请输入短信验证码" class="djhd_code_input" id="J_hd_code"/>
+            <a href="javascript:;" class="djhd_num_code" id="sendYouhuiCode">获取验证码</a>
+            <i class="phone_code"></i>
+            <i class="phone_bg"></i>
+            <i class="linkman_bg"></i>
+        </div>
+    </form>
+    <p class="error_text"><i></i>请输入正确的姓名</p>
+    <div class="dialog_button">
+        <a href="javascript:;" class="cancel_btn">取&nbsp;消</a>
+        <a href="javascript:;" class="sure_btn djhd_sure_btn">确&nbsp;定</a>
+
+    </div>
+</div>
+<!-- 预约看房 dialog -->
+<div id="J-notice-dialog" class="ui2-dialog-wraper notice-dialog">
+    <div class="dialog-reserve-content " id="J_reserve">
+        <div class="d-res-title">预约看房</div>
+        <ul class="form_ul">
+            <li class="tel">
+                <input type="text" name="mobile" value="" maxlength="11" placeholder="请输入您的姓名" class="input_text" id="J_input_name">
+            </li>
+            <li class="tel">
+                <input type="text" name="mobile" value="<?php echo isset($sUserMobile) ? $sUserMobile : '' ;?>" maxlength="11" placeholder="请输入您的手机号码" class="input_text" id="J_input_tel">
+            </li>
+            <li class="dxyzm">
+                <input type="text" name="scode" value="" maxlength="6" placeholder="请输入短信验证码" class="input-dxyzm" id="J_input_dxyzm">
+                <span class="sendyzm_btn" id="J_sendyzm_btn">发送验证码</span>
+            </li>
+        </ul>
+        <div class="dialog-btn-box">
+            <a class="ui2-dialog-buttons cancel J-close-btn">取消</a>
+            <a class="ui2-dialog-buttons" id="J_reserve_confirm">提交</a>
+        </div>
+    </div>
+    <div class="dialog-reserve-content hide" id="J_reserve_success">
+        <div class="d-res-detail">
+            <span class="res-icon"></span>
+            <p class="txt1">预约成功</p>
+            <p class="txt2">我们会尽快与您联系，请保持手机畅通</p>
+        </div>
+        <div class="dialog-btn-box">
+            <a href="javascript:location.reload();" class="ui2-dialog-buttons J-reserve-confirm">确定</a>
+        </div>
+    </div>
+    <div class="dialog-reserve-content hide" id="J_reserve_fail">
+        <div class="d-res-detail">
+            <span class="res-icon fail"></span>
+            <p class="txt1">预约失败</p>
+            <p class="txt2">阿哦！网络太差导致报名失败了</p>
+        </div>
+        <div class="dialog-btn-box">
+            <a class="ui2-dialog-buttons cancel J-close-btn">取消</a>
+            <a class="ui2-dialog-buttons" id="J_try_again">再试一次</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src='https://api.map.baidu.com/api?v=2.0&ak=6NnVzVf2Ydy9YkBE1fpWT3V1&s=1' feather-position-head></script>
+<script type="text/javascript">
+    var largeImgUrl = <?php echo json_encode($aCoverImg['list'])?>;
+    // console.log(largeImgUrl)
+    if (typeof pageConfig == 'undefined') {
+        var pageConfig = {}
+    }
+    pageConfig.lng = "<?php echo $aDetail['lng'] ;?>";
+    pageConfig.lat = "<?php echo $aDetail['lat'] ;?>";
+    pageConfig.houseName = "<?php echo $aDetail['title'] ;?>";
+    pageConfig.iLoupanID = "<?php echo $aDetail['id'] ;?>";
+    pageConfig.youhuiUrl = "<?php echo isset($sYouhuiAjaxUrl) ? $sYouhuiAjaxUrl : '' ;?>";//优惠
+    pageConfig.sendCodeUrl = "<?php echo isset($sLoupanSms) ? $sLoupanSms : '' ;?>";//发送验证码
+    pageConfig.dongtaiUrl = "<?php echo isset($sLoupancheckSms) ? $sLoupancheckSms : '' ;?>";//变价、开盘通知
+    pageConfig.sYySmsUrl = "<?php echo isset($sOrderSmsCaptcha) ? $sOrderSmsCaptcha : '' ;?>";//预约看房验证码
+    pageConfig.sYyUrl = "<?php echo isset($sOrderUrl) ? $sOrderUrl : '' ;?>";//预约看房
+    pageConfig.sMoneyUrl = "<?php echo isset($sMoneyUrl) ? $sMoneyUrl : '' ;?>";//领现金
+    pageConfig.sResultUrl = "<?php echo isset($sResultUrl) ? $sResultUrl : '' ;?>";//领现金成功跳转地址
+    pageConfig.sOpenWangCaiPageUrl = "<?php echo isset($sOpenWangCaiPageUrl) ? $sOpenWangCaiPageUrl : '' ;?>";//领现金 未开通旺财账号 跳转地址
+    require.async(['/static/event/jgj4/detail/detail.js', '/static/event/jgj4/detail/detail_dialog.js']);
+//var aData = <?php echo json_encode($aDetail)?>;
+//console.log(aData);
+</script>
+
+
+<?php $this->component('/common/footer');?>

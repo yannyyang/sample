@@ -1,0 +1,148 @@
+<?php $this->component('/common/header');?>
+<?php if($iLogin == -1){ ?>
+    <section class="page_content">
+        <div class="logo"></div>
+        <div class="loading_pic"></div>
+        <div class="loading_b"></div>
+        <p class="loading_text">正在玩命加载，请稍后...</p>
+        <div class="loading_tips">尊敬的客户，您即将离开平安金管家，进入平安好房</div>
+    </section>
+<?php }else if($iLogin == 1){ ?>
+<section class="t_fill_black"></section>
+<section class="top_banner">
+    <div class="logo"></div>
+    <a href="<?php echo $sRuleUrl ?>" class="rule">活动规则</a>
+    <span class="c_city" id="J_select_city"><?php echo $sCurrentCityName ;?></span>
+    <div class="get_cash"></div>
+    <ul class="get_area clearfix">
+        <?php foreach($aMoneyList as $key => $value) {?> 
+        <li>
+            <h3>&nbsp;购房金</h3>
+            <p><span>￥</span><b><?php echo $value['sPrice'] ;?></b><span>.00</span></p>
+            <h4><?php echo $value['sDesc'] ;?></h4>
+            <?php if($value['sGetStatus']) {?>
+            <a href="javascript:;" class="get_btn J_getM_btn grey_btn">已领取</a>
+            <?php } else { ?>
+            <a href="javascript:;" data-type="<?php echo $value['code'] ;?>" data-price="<?php echo $value['sPrice'] ;?>" class="get_btn J_getM_btn" data-autofax="true" data-eventstr="JGJ_H_CLICK_LGFJ<?php echo $value['sPrice'] ;?>">立即领取</a>
+            <?php } ?>
+        </li>
+        <?php } ?>
+    </ul>
+    <h3 class="hot_title">好房爆款楼盘</h3>
+</section>
+<?php if(isset($aHotLoupanList['aLoupanList']) && count($aHotLoupanList['aLoupanList']) > 0) {?>
+<section class="hot_loupan">
+    <?php foreach($aHotLoupanList['aLoupanList'] as $key => $value) {?> 
+    <a href="<?php echo $value['url'] ;?>">
+        <div class="loupan_item clearfix">
+            <img src="<?php echo $value['picUrl'] ;?>">
+            <div class="loupan_detail">
+                <p class="loupan_name"><?php echo $value['title'] ;?></p>
+                <?php if($value['salesState'] != '0') {?>
+                <span class="sell_empty bg_<?php echo $value['salesState'] ;?>"><?php echo $value['salesStateName'] ;?></span>
+                <?php } ?>
+                <p class="loupan_area"><?php echo $value['region'] ;?>-<?php echo $value['section'] ;?>·<?php echo $value['estateType'] ;?></p>
+                <div class="loupan_tag_bo"><?php foreach($value['tags'] as $key1 => $value1) {?>
+                    <?php if($key1 < 3){ ?>
+                    <span class="loupan_tag"><?php echo $value1 ;?></span>
+                    <?php } ?>
+                <?php } ?></div>
+                <p class="loupan_price"><?php echo $value['unitPrice'] ;?><span><?php echo $value['area'] ;?></span></p>
+            </div>
+        </div>
+    </a>
+    <?php } ?>
+</section>
+<?php } ?>
+<?php if(isset($aLoupanList) && count($aLoupanList) > 0) {?>
+<section class="loupan_event">
+    <ul>
+        <?php foreach($aLoupanList as $key => $value) {?> 
+        <li>
+            <a href="<?php echo $value['sListUrl'] ;?>">
+                <h3><?php echo $value['sTitle'] ;?></h3>
+                <p><?php echo $value['sDesc'] ;?></p>
+            </a>
+        </li>
+        <?php } ?>
+    </ul>
+</section>
+<?php } ?>
+<div class="fixed_btn">
+    <p>好房爆款&nbsp;&nbsp;惊喜不断<br />获取更多购房金，立享活动优惠~</p>
+    <a href="<?php echo $sGfjUrl ?>">我的购房金</a>
+</div>
+<!-- 弹框 -->
+<div id="J_new_user_dialog" class="ui2-dialog-wraper" style="display:none">
+    <div class="new_user_dialog">
+        <h3>新人福袋</h3>
+        <a href="javascript:;" class="get_btn J_get_btn" data-autofax="true" data-eventstr="JGJ_H_CLICK_LGFJ100">立即领取</a>
+        <span class="close_btn J_close_btn"></span>
+    </div>  
+</div>
+<div id="J_notice_dialog" class="ui2-dialog-wraper">
+    <div class="notice_dialog">
+        <h3>恭喜您</h3>
+        <p>成功领取<span class="J-money-num">100</span>元<span class="J-money-txt">通用购房金</span></p>
+        <div class="d-get-con">
+            <div class="txt1">￥<span class="J-money-num">100</span>.00</div>
+            <div class="txt2 J-money-txt">通用购房金</div>
+        </div>
+        <a href="javascript:location.reload();" class="">确定</a>
+    </div>
+</div>
+<!-- 城市选择 -->
+<aside class="city" id="J_city">
+    <header id="J_citybar" class="citylist-hide">
+        <section class="top-l"><a href="javascript:void(0);" class="iconfont">&#xe61e;</a></section>
+        <section>选择城市</section>
+    </header>
+    <section class="citylist citylist-hide" id="J_citylist"> 
+        <article>       
+            <section class="title pad-top">
+                当前城市
+            </section>
+            <section class="currcity clearfix">
+                <span class="currsite"></span>
+                <span class="currcityname"><?php echo $sCurrentCityName ;?></span>
+            </section>
+            <section class="cityname">
+                <?php if ($aCities) { ?>
+                    <?php foreach ($aCities as $key => $city) { ?>
+                    <dl id="<?php echo $key ;?>">
+                        <dt><?php echo $key ;?></dt>
+                        <?php foreach ($city as $value) { ?>
+                        <dd><a class="j_cityname" data-cid="<?php echo $value['iCityId'] ;?>" href="javascript:;"><?php echo $value['sName'] ;?></a></dd>
+                        <?php } ?>
+                    </dl>
+                    <?php } ?>
+                <?php }?>
+            </section>
+        </article>
+    </section>
+    <ul class="character citylist-hide" id="J_character">
+        <?php if ($aCityChar) { ?>
+            <?php foreach ($aCityChar as $char) { ?>
+            <li data-target="#<?php echo $char ;?>"><?php echo $char ;?></li>
+            <?php } ?>
+        <?php }?>
+    </ul>
+</aside>
+<?php } ?>
+<script src="/static/common/rem.js" feather-position-head></script>
+<script type="text/javascript" src="/static/event/jgj4/NativeJSPatch.js" feather-position-head></script>
+<script type="text/javascript" src="/static/event/jgj4/PALifeOpen.min.js" feather-position-head></script>
+<script type="text/javascript">
+    require.async('/static/event/jgj4/index/index.js');
+    var pageConfig = {
+        "bTakenFuDai": "<?php echo($bTakenFuDai ? 1 : 0); ?>",
+        "sFuDaiApiUrl": "<?php echo(isset($sFuDaiApiUrl) ? $sFuDaiApiUrl : ''); ?>",
+        "loadingUrl":"<?php echo isset($sLoadingUrl) ? $sLoadingUrl : '' ;?>",
+        "errorUrl":"<?php echo isset($sErrUrl) ? $sErrUrl : '' ;?>",
+        "checkLogin":"<?php echo isset($iLogin) ? $iLogin : '' ;?>",
+        "currentCityId":"<?php echo isset($iCurrentCityID) ? $iCurrentCityID : '' ;?>",
+        "baseDomain":"<?php echo isset($sDomain) ? $sDomain : '' ;?>",
+        "setCookieApiUrl":"<?php echo isset($sSetCookieUrl) ? $sSetCookieUrl : '' ;?>",
+    };
+</script>
+<?php $this->component('/common/footer');?>

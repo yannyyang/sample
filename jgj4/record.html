@@ -1,0 +1,75 @@
+<?php $this->component('/common/header');?>
+<link rel="stylesheet" type="text/css" href="/static/event/jgj4/record/record.css">
+<script type="text/javascript" src="/static/common/rem.js" feather-position-head></script>
+
+<section class="cont_bg">
+    <div class="nav-list" id="navList">
+        <a href="javascript:;" class="nav-active gold_btn" data="tabGlod" data-type="1" data-autofax="true" data-eventstr="JGJ_H_CLICK_MYGFJ">我的购房金</a>
+        <a href="javascript:;" class="cash_btn" data="tabCash" data-type="2" data-autofax="true" data-eventstr="JGJ_H_CLICK_MYCASH">我的现金</a>
+    </div>
+    <a href="<?php echo $sHomePageUrl; ?>" class="back_home">返回活动首页</a>
+    <div class="tab-box">
+        <!-- 我的购房金 -->
+        <div class="tab-glod" id="tabGlod">
+            <?php if(!empty($aCoupon)){?>
+                <div class="record-list">
+                    <div class="all_list">
+                        <?php foreach($aCoupon as $k =>$v) {?>
+                        <div class="list-box">
+                            <div class="list_td list-left">
+                                <h3 class="tit"><?php echo $v['sTitle'];?></h3>
+                                <p class="desc"><?php echo $v['sDesc'];?></p>   
+                            </div>
+                            <div class="list_td list-right">
+                                <?php if ($v['iTaken'] == 0) { ?>
+                                    <a href="javascript:;" class="btn_gfj btn_active" data-type="<?php echo $v['iType'];?>" data-autofax="true" data-eventstr="JGJ_H_CLICK_LGFJ<?php echo $v['iAmount'];?>_2">领取购房金</a> 
+                                <?php } else { ?>
+                                    <a href="javascript:;" class="btn_gfj btn_gray">已领取</a>
+                                <?php } ?>
+                            </div>
+                        </div>
+                        <?php }?>
+                    </div>
+                </div>
+            <?php }else{?>
+                <div class="none-list">
+                    <span></span>
+                    <p>您还没有领取记录</p>
+                </div>
+            <?php }?>
+            <p align="center" class="fc_999">如有疑问，请联系您的寿险经纪人</p>
+        </div>
+        <div class="tabs-cash hide" id="tabCash">
+            <div class="record-list">
+                <div class="cash_state list-box" style="display:none;">
+                    <div class="list_td list-left">您已累计获取现金</div>
+                    <div class="list_td list-right fs_40"><span class="total"></span>元</div>
+                </div>
+
+                <div class="all_list" id="J_cash_tpl">
+                   
+                </div>
+                <div class="new-pages" style="display:none;">
+                    <span class="more-btn">努力加载中...</span>
+                </div>
+            </div>
+
+            <div class="none-list" style="display:none;">
+                <span></span>
+                <p>暂无记录</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    if (typeof pageConfig == 'undefined') {
+        var pageConfig = {
+            sCouponApiUrl : '<?php echo $sCouponApiUrl; ?>',//领取购房金接口
+            sCashHistoryApiUrl : '<?php echo $sCashHistoryApiUrl; ?>',//现金列表数据接口
+            sTab : '<?php echo $sTab; ?>'//区分购房金和现金
+        }
+    }
+    require.async(['/static/event/jgj4/record/record.js']);
+</script>
+<?php $this->component('/common/footer');?>

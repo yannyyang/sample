@@ -1,0 +1,19 @@
+/* footer */
+.hf-footer {
+    position:relative;
+    padding: 1.160714rem 0;
+    text-align: center;
+    /*background-color: #f4f4f4;*/
+    font-size: 0.464286rem;
+    line-height: 1;
+    color: #666;
+}
+.hf-footer .o-txt {
+    margin-bottom: 0.535714rem;
+}
+.hf-footer img{
+    display: inline-block;
+    margin-right: 0.107143rem;
+    vertical-align: -1px;
+    width: 0.464286rem;
+}

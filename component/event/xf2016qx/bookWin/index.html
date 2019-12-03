@@ -1,0 +1,73 @@
+<!-- 预约看房，活动三 -->
+<!-- 注册，登录 -->
+<section class="bookroom-window bookroom-window-step1" style="display:none;">
+  <div class="bookroom-box">
+    <header class="bookroom-header">
+        <h3>预约看房</h3>
+    </header>
+    <form id="bookroom-form" autocomplete="off" class="bookroom-form">
+        <ul class="form-ul">
+          <li class="loupan">
+              <span class="loupan-icon"></span>
+              <span class="loupan-input lpname-show-yy">
+                  中骏柏景湾
+              </span>
+          </li>
+          <li class="tel">
+              <span class="tel-icon"></span>
+              <span class="tel-input">
+                  <input type="text" name="sMobile" maxlength="11" placeholder="请输入手机号" class="input-tel" id="input-tel-yy">
+              </span>
+          </li>
+          <li class="tpyzm" style="display:none;">
+              <span class="tpyzm-icon"></span>
+              <span class="tpyzm-input">
+                  <input type="text" name="captcha" maxlength="4" placeholder="请输入图片验证码" class="input-tpyzm" id="input-tpyzm-yy">
+                  <img src="<?php echo $aData['urlData']['yykfCaptchaPicUrl']; ?>" id="tpyzm-yy">
+              </span>
+          </li>
+          <li class="dxyzm">
+              <span class="dxyzm-icon"></span>
+              <span class="dxyzm-input">
+                  <input type="text" name="sMsgCode" maxlength="4" placeholder="请输入短信验证码" class="input-dxyzm" id="input-dxyzm-yy">
+                  <input type="button" class="sendyzm-btn" id="sendyzm-btn-yy" value="发送验证码">
+                  <input type="hidden" id="yykfsendURL" value="<?php echo isset($aData['urlData']['getyykfcaptcha']) ? $aData['urlData']['getyykfcaptcha'] : ''; ?>">
+                  <input type="hidden" id="yykfapplyURL" value="<?php echo isset($aData['urlData']['yykfapply']) ? $aData['urlData']['yykfapply'] : ''; ?>">
+              </span>
+          </li>
+        </ul>
+        <div class="error-tips">
+            <span class="valid-icon"></span>
+            <span class="valid-tips">请输入手机号！</span>
+        </div>
+        <p class="quick-bookroom-btn"><input type="button" class="quick-book-btn" id="quick-book-btn" data-autofax="true" data-eventstr="QX_LOGIN_XF_HDKFT" value="立即预约"></p>
+        <a href="javascript:void(0);" class="close-window-btn">关闭</a>
+        <input type="hidden" id="loupanname" name="sLoupanName">
+        <input type="hidden" id="loupanid" name="iLoupanId">
+        <input type="hidden" id="cityjp" name="sAbbreviate">
+    </form>
+  </div>
+</section>
+<!-- 预约成功-->
+<section class="bookroom-window bookroom-window-step2" style="display:none;">
+    <div class="bookroom-box1">
+       <p class="success-icon"></p>
+       <h3>预约成功</h3>
+       <p class="loupan-recommend-text"><span>为您推荐</span><a href="#">查看更多热销楼盘</a></p>
+       <ul class="loupan-recommend-ul">
+         <li style="margin-right:9px;"><a href=""><img src=""><span></span></a></li>
+         <li><a href=""><img src=""><span></span></a></li>
+       </ul>
+       <a href="javascript:void(0);" class="close-window-btn">关闭</a>
+    </div>
+</section>
+<!-- 预约失败-->
+<section class="bookroom-window bookroom-window-step3" style="display:none;">
+  <div class="bookroom-box">
+     <p class="fail-icon"></p>
+     <h3>预约失败</h3>
+     <p class="friend-tips">预约失败，请稍后再试...</p>
+     <a href="javascript:void(0);" class="more-event">查看其他活动</a> 
+     <a href="javascript:void(0);" class="close-window-btn">关闭</a>
+  </div>
+</section>

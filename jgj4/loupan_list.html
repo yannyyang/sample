@@ -1,0 +1,55 @@
+<?php $this->component('/common/header');?>
+<link rel="stylesheet" type="text/css" href="/static/event/jgj4/list/list.css">
+<div class="header-fixed">
+    <div class="tabnav">
+        <?php foreach( $sTypeList as $key => $val) {
+            $mdStr = '';
+            if ($key==1) {
+                $mdStr = 'JXTJ';
+            } elseif ($key==2) {
+                $mdStr = 'JGYJ';
+            } else {
+                $mdStr = 'JXZX';
+            } 
+        ?>
+        <a href="javascript:;" class="search-nav-bar <?php if($key==$iLoupanType) echo 'act';?>" data="scrollContent" data-autofax="true" data-eventstr="JGJ_H_CLICK_<?php echo $mdStr; ?> ">
+            <span data-autofax="true" data-eventstr="JGJ_H_CLICK_<?php echo $mdStr; ?> "><?php echo $val;?></span>
+        </a> 
+        <?php } ;?>
+    </div>
+</div>
+<section class="details_main">
+	<div id="scrollContent">        
+        <div class="innermy hide">
+             <div class="not-found">
+             <p class="img"></p>
+             <p>没有找到您要的结果，<br/>换个条件试试吧</p>
+             </div>
+        </div>
+        <div class=" details-building-data">
+        </div>
+		<div class="new-pages padding-10" id="new-pages" style="display:none">
+            <span class="more-btn">努力加载中...</span>
+        </div>
+	</div>
+    <p align="center" class="load_more_wrap hide"><a href="javascript:;" class="load_more" id="loadMore">点击加载更多</a></p>
+
+	
+
+</section>
+
+
+<script src="/static/common/rem.js" feather-position-head></script>
+<script>
+	if( typeof pageConfig == undefined ){
+		var pageConfig = {};
+	}
+    pageConfig = {
+        getListUrl: '<?= $sLoupanUrl; ?>',
+        iCityID: "<?= $iCityID; ?>",
+        iLoupanType: "<?= $iLoupanType ?>"
+    }
+    require.async(['/static/event/jgj4/list/list.js','/static/event/jgj4/list/list_md.js']);
+
+</script>
+<?php $this->component('/common/footer');?>

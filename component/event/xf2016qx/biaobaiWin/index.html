@@ -1,0 +1,135 @@
+<!-- 老司机表白，送大礼，活动一 -->
+<!-- 第1步，注册，登录 -->
+<section class="biaobai-window biaobai-window-step1" style="display:none;">
+    <div class="biaobai-box">
+        <header class="biaobai-process">
+            <p class="biaobai-bg biaobai-bg-step1"></p>
+            <p class="biaobai-tip">表白大礼包的获奖信息将会发送到您预留的手机号</p>
+        </header>
+        <form id="biaobai-form" autocomplete="off" class="biaobai-form">
+            <ul class="form-ul">
+                <li class="tel">
+                    <span class="tel-icon"></span>
+                    <span class="tel-input">
+                        <input type="text" name="mobile" maxlength="11" placeholder="请输入手机号" class="input-tel" id="input-tel-bb1">
+                    </span>
+                </li>
+                <li class="tpyzm" style="display:none;">
+                    <span class="tpyzm-icon"></span>
+                    <span class="tpyzm-input">
+                        <input type="text" name="captcha" maxlength="4" placeholder="请输入图片验证码" class="input-tpyzm" id="input-tpyzm-bb">
+                        <img src="<?php echo $aData['urlData']['getCaptchaPicUrl']; ?>" id="tpyzm-bb">
+                    </span>
+                </li>
+                <li class="dxyzm">
+                    <span class="dxyzm-icon"></span>
+                    <span class="dxyzm-input">
+                        <input type="text" name="sMsgCode" maxlength="4" placeholder="请输入短信验证码" class="input-dxyzm" id="input-dxyzm-bb">
+                        <input type="button" class="sendyzm-btn" id="sendyzm-btn-bb" value="发送验证码">
+                    </span>
+                    <input type="hidden" id="bbsendURL" value="<?php echo isset($aData['urlData']['getcaptcha']) ? $aData['urlData']['getcaptcha'] : ''; ?>">
+                  <input type="hidden" id="bbnextURL" value="<?php echo isset($aData['urlData']['smsauth']) ? $aData['urlData']['smsauth'] : ''; ?>">
+                </li>
+            </ul>
+            <div class="error-tips" style="display:none;">
+                <span class="valid-icon"></span>
+                <span class="valid-tips">请输入手机号！</span>
+            </div>
+            <p class="biaobai-btn"><input type="button" class="next-btn-step" id="next-btn-step" value="下一步"></p>
+            <a href="javascript:void(0);" class="close-window-btn">关闭</a>
+        </form>
+    </div>
+</section>
+<!-- 第2步，选择表白语，点击领奖 -->
+<section class="biaobai-window biaobai-window-step2" style="display:none;">
+    <div class="biaobai-box">
+        <header class="biaobai-process">
+            <p class="biaobai-bg biaobai-bg-step2"></p>
+            <p class="biaobai-tip">告白成功后，Ta将收到你的告白短信</p>
+        </header>
+        <form id="biaobai-form" autocomplete="off" class="biaobai-form">
+            <ul class="form-ul">
+                <li class="name">
+                    <span class="name-icon"></span>
+                    <span class="name-input">
+                        <input type="text" name="sFromNickName" maxlength="10" placeholder="请输入你的昵称" class="input-name" id="input-name-bb">
+                    </span>
+                </li>
+                <li class="tel">
+                    <span class="tel-icon"></span>
+                    <span class="tel-input">
+                        <input type="text" name="sToMobile" maxlength="11" placeholder="请输入Ta的手机号" class="input-tel" id="input-tel-bb2">
+                    </span>
+                </li>
+                <li class="biaobai-words">
+                    <span class="biaobai-icon"></span>
+                    <div class="word-list">
+                        <a href="javascript:void(0);" class="each-line">
+                            <span class="duigou duigou-icon"></span>
+                            <input class="biaobai-checkbox" type="checkBox" name="iConTypeID" checked="checked" value="1">
+                            <span class="each-word">爱你，么么哒~</span>
+                        </a>
+                        <a href="javascript:void(0);" class="each-line">
+                            <span class="duigou duigou-none-icon"></span>
+                            <input class="biaobai-checkbox" type="checkBox" name="iConTypeID" value="2">
+                            <span class="each-word">爱你是我这生最对的决定</span>
+                        </a>
+                        <a href="javascript:void(0);" class="each-line">
+                            <span class="duigou duigou-none-icon"></span>
+                            <input class="biaobai-checkbox" type="checkBox" name="iConTypeID" value="3">
+                            <span class="each-word">让我们创造更美的未来吧</span>
+                        </a>
+                        <a href="javascript:void(0);" class="each-line">
+                            <span class="duigou duigou-none-icon"></span>
+                            <input class="biaobai-checkbox" type="checkBox" name="iConTypeID" value="4">
+                            <span class="each-word">好想送你一套大房子</span>
+                        </a>
+                        <a href="javascript:void(0);" class="each-line">
+                            <span class="duigou duigou-none-icon"></span>
+                            <input class="biaobai-checkbox" type="checkBox" name="iConTypeID" value="5">
+                            <span class="each-word">亲爱的，我们去扯证吧</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <div class="error-tips" style="display:none;">
+                <span class="valid-icon"></span>
+                <span class="valid-tips">请输入手机号！</span>
+            </div>
+            <input type="hidden" id="bbapplyURL" value="<?php echo isset($aData['urlData']['expresser']) ? $aData['urlData']['expresser'] : ''; ?>">
+            <p class="biaobai-btn"><input type="button" class="get-prize-btn" id="get-prize-btn" value="点击领奖" data-autofax="true" data-eventstr="QX_CLICK_XF_LJ"></p>
+            <a href="javascript:void(0);" class="close-window-btn">关闭</a>
+        </form>
+    </div>
+</section>
+<!--表白成功-->
+<section class="biaobai-window biaobai-window-step3" style="display:none;">
+    <div class="biaobai-box">
+       <p class="success-icon"></p>
+       <h3>表白成功</h3>
+       <p class="friend-tips">你已表白成功，我们会将获奖信息以短信的形式通知你，请注意查收。</p>
+       <a href="javascript:void(0);" class="more-event">查看其他活动</a>
+       <a href="javascript:void(0);" class="close-window-btn">关闭</a> 
+    </div>
+</section>
+<!-- 表白失败-->
+<section class="biaobai-window biaobai-window-step4" style="display:none;">
+    <div class="biaobai-box">
+       <p class="fail-icon"></p>
+       <h3>已领完</h3>
+       <p class="friend-tips">奖品已被领完。</p>
+       <a href="javascript:void(0);" class="more-event">查看其他活动</a> 
+       <a href="javascript:void(0);" class="close-window-btn">关闭</a> 
+    </div>
+</section>
+<!-- 领取礼包失败-->
+<section class="biaobai-window biaobai-window-step5" style="display:none;">
+    <div class="biaobai-box">
+       <p class="fail-icon"></p>
+       <h3>已领完</h3>
+       <p class="friend-tips">今天礼包已领完，明天再来吧。</p>
+       <a href="javascript:void(0);" class="more-event">查看其他活动</a>
+       <a href="javascript:void(0);" class="close-window-btn">关闭</a>  
+    </div>
+</section>
+

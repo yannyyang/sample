@@ -1,0 +1,17 @@
+<?php $this->component('/common/header');?>
+<script type="text/javascript" src="/static/common/rem.js" feather-position-head></script>
+<script type="text/javascript" src="/static/event/jgj4/NativeJSPatch.js" feather-position-head></script>
+<script type="text/javascript" src="/static/event/jgj4/PALifeOpen.min.js" feather-position-head></script>
+<section class="open_bg">
+    <p>本次活动仅支持已开通旺财账户的用户</p>
+    <p class="open_text">点击按钮立即开通</p>
+    <a id="J_open" href="javascript:void(0);">立即开通</a>
+</section>
+<script type="text/javascript">
+    var pageConfig = {
+        checkAgentInfoUrl : "<?php echo $checkAgentInfoUrl ;?>",
+        indexUrl:"<?php echo $sIndexUrl;?>"
+    }
+    require.async(['/static/event/qbdb/open/open.js']);
+</script>
+<?php $this->component('/common/footer');?>

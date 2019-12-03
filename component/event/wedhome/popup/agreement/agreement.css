@@ -1,0 +1,7 @@
+.ui-dialog-header{
+	margin-top: 0;
+}
+.ui-dialog-content{
+	overflow-y:auto !important; 
+	margin-top: 1%;
+}

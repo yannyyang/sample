@@ -1,0 +1,214 @@
+/**
+ * project：新房移动端七夕节20160809                        
+ * author: camille             
+ * branch： HFPC-65                                                                              
+ * Date：2016-07-21                                                                               
+ */
+
+/*老司机表白，送大礼，活动一*/
+
+/*第1步，注册，登录*/
+.biaobai-window {
+    width: 320px;
+    background: #fff;
+}
+.biaobai-box {
+    position: relative;
+    padding: 15px 25px;
+}
+.biaobai-box .biaobai-process {
+    padding-top: 15px;
+}
+.biaobai-process .biaobai-bg {
+    height: 50px;
+    background: url("/component/event/xf2016qx/common/images/process.png") no-repeat center 0;
+    background-size: 90%;
+}
+.biaobai-process .biaobai-tip {
+    color: #ffa901;
+    font-size: 12px;
+    text-align: center;
+}
+.biaobai-box .biaobai-form .form-ul {
+    padding: 10px 0 5px;
+}
+.form-ul li input {
+    height: 30px;
+}
+.name-icon, .tel-icon, .tpyzm-icon, .dxyzm-icon, .close-window-btn, .biaobai-icon, .duigou-icon, .duigou-none-icon, .valid-icon {
+    display: inline-block;
+    width: 10%;
+    height: 35px;
+    line-height: 35px;
+    background: url("/component/event/xf2016qx/common/images/formele.png") no-repeat;
+    background-size: 36px auto;
+    vertical-align: middle;
+}
+.tel-icon {
+    background-position: 0 -107px;
+}
+.tpyzm-icon {
+    background-position: 0 -168px;
+}
+.dxyzm-icon {
+    position: relative;
+    background-position: 0 -227px;
+}
+.name-input, .tel-input, .tpyzm-input, .dxyzm-input, .word-list {
+    position: relative;
+    display: inline-block;
+    padding: 8px 0;
+    width: 86%;
+    height: 35px;
+    line-height: 35px;
+    border-bottom: 1px solid #d0d0d0;
+}
+.tpyzm-input img {
+    display: inline-block;
+    width: 98px;
+    height: 32px;
+    vertical-align: middle;
+    -webkit-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+}
+.dxyzm .sendyzm-btn {
+    padding: 8px 12px;
+    width: 98px;
+    height: 32px;
+    line-height: 0;
+    color: #ff853b;
+    border: 1px solid #ff853b;
+    -webkit-border-radius: 16px;
+    -ms-border-radius: 16px;
+    -o-border-radius: 16px;
+    -moz-border-radius: 16px;
+    border-radius: 16px;
+    background-color: #fff;
+}
+.dxyzm .sendyzm-ing {
+    color: #a9a9a9 !important;
+    border-color: #a9a9a9 !important;
+}
+.error-show{display: block !important;}
+.error-tips {
+    display: none;
+    margin: 15px auto 0;
+    padding: 0 10px;
+    width: 60%;
+    height: 30px;
+    line-height: 30px;
+    vertical-align: baseline;
+    text-align: center;
+    background: #fff9ea;
+    -webkit-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    color: #ff6901;
+}
+.error-tips .valid-icon {
+    background-position: 0 -506px;
+}
+.error-tips .valid-tips {
+    display: inline-block !important;
+}
+.biaobai-btn .next-btn-step, .biaobai-btn .get-prize-btn {
+    display: block;
+    margin: 20px auto 20px;
+    padding: 8px 15px;
+    width: 82%;
+    text-align: center;
+    background-color: #ff853b;
+    -webkit-border-radius: 22px;
+    -ms-border-radius: 22px;
+    -o-border-radius: 22px;
+    -moz-border-radius: 22px;
+    border-radius: 22px;
+    color: #fff;
+    font-size: 16px;
+}
+.biaobai-box .close-window-btn {
+    position: absolute;
+    right: 0px;
+    top: 5px;
+    width: 25px;
+    height: 25px;
+    text-indent: -9999px;
+    background-position: 0 -453px;
+}
+
+/*第2步，选择表白语，点击领奖*/
+.biaobai-process .biaobai-bg-step2 {
+    background-position: center -76px;
+}
+.name-icon {
+    background-position: 0 7px;
+}
+.biaobai-words .biaobai-icon {
+    background-position: 0 -553px;
+    vertical-align: top;
+}
+.biaobai-words .word-list {
+    height: 128px;
+}
+.word-list .each-line {
+    display: block;
+    height: 25px;
+    line-height: 25px;
+}
+.each-line .biaobai-checkbox {
+    display: none;
+}
+.each-line .duigou-icon {
+    background-position: 0 -336px;
+}
+.each-line .duigou-none-icon {
+    background-position: 0 -392px;
+}
+.each-line .each-word {
+}
+
+/*表白成功还是失败？*/
+.biaobai-box .success-icon, .biaobai-box .fail-icon {
+    margin: 0 auto;
+    width: 17%;
+    height: 63px;
+    background: url("/component/event/xf2016qx/common/images/formele.png") no-repeat;
+    background-size: 40px auto;
+    background-position: 0 -796px;
+    text-align: center;
+}
+.biaobai-box .fail-icon {
+    background-position: 0 -936px;
+}
+.biaobai-box h3 {
+    text-align: center;
+    font-size: 18px;
+    color: #ff8447;
+}
+.biaobai-box .friend-tips {
+    margin: 15px auto;
+    font-size: 13px;
+    color: #666666;
+    text-align: center;
+}
+.biaobai-box .more-event {
+    display: block;
+    margin: 20px auto 20px;
+    padding: 8px 15px;
+    width: 82%;
+    text-align: center;
+    background-color: #ff8447;
+    -webkit-border-radius: 22px;
+    -ms-border-radius: 22px;
+    -o-border-radius: 22px;
+    -moz-border-radius: 22px;
+    border-radius: 22px;
+    color: #fff;
+    font-size: 18px;
+}

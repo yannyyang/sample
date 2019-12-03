@@ -1,0 +1,95 @@
+body{
+	position: relative;
+}
+div.ui-mask{
+	opacity: 0.7;
+}
+.icon_list {
+	width: 100%;
+	position: fixed;
+	z-index: 10001;
+	bottom:0;
+	left: 0;
+	transform : translate(0,100%);
+	-webkit-transform:  translate(0,100%);    /* for Chrome || Safari */
+    -moz-transform:  translate(0,100%);       /* for Firefox */
+    -ms-transform:  translate(0,100%);        /* for IE */
+    -o-transform:  translate(0,100%);         /* for Opera */
+}
+
+.icon_wrap{
+	padding: 3.2% 6%;
+	background-color: #ebebeb;
+}
+.icon_list .close_wrap{
+	display: block;
+	background-color: #ebebeb;
+	margin-top: 3%;
+	text-align: center;
+}
+.icon_list .close_sns{
+	color: #666;
+	font-size: 1.4rem;
+	line-height: 3.2rem;
+}
+
+.icon_wrap .share{
+	display: block;
+	background:url('./image/sns.png') no-repeat;
+	content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADAQMAAABs5if8AAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAAApJREFUCNdjAAMAAAYAAegKKqQAAAAASUVORK5CYII=);
+	width: 17%;
+	margin: 3% 4%;
+	float: left;
+	background-size: 100%;
+}
+
+.icon_wrap .share.weibo{
+	background-position: 0 32%;
+}
+.icon_wrap .share.txweibo{
+	background-position: 0 65%;
+}
+.icon_wrap .share.qqzone{
+	background-position: 0 99%;
+}
+.weixin_mask,{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 0;
+	padding-top: 178%;
+	background: url('./image/weixinshare.png') center 0 no-repeat;
+	background-size: 100%;
+	z-index: 1;
+	display: none;
+}
+.qr_code{
+	position: fixed;
+	display: none;
+	top: 0;
+	left: 0;
+	margin-top: 5%;
+	width: 100%;
+	text-align: center;
+	/*font-size: 1.4rem;*/
+	color: #fff;
+	z-index: 10001;
+	line-height: 1.8;
+}
+.qr_code b{
+	font-weight: normal;
+}
+.qr_code span{
+	font-size: 1.3rem;
+}
+.qr_code .qr_img{
+	@media (max-height: 480px) {
+		width: 65%;
+	}
+	@media (min-height: 481px) {
+		width: 75%;
+	}
+
+	margin: 4% auto;
+} 

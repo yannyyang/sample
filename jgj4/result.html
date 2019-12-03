@@ -1,0 +1,42 @@
+<?php $this->component('/common/header');?>
+<link rel="stylesheet" type="text/css" href="/static/event/jgj4/result/result.css">
+<script type="text/javascript" src="/static/common/rem.js" feather-position-head></script>
+<section class="result clearfix">
+    <?php if ($iAmount != 0) { ?>
+        <span class="suc_icon"></span>
+        <h3>恭喜您~</h3>
+        <p>成功赚取<i><?php echo $iAmount;?>元</i>现金</p>
+    <?php } else { ?>
+        <span class="fail_icon"></span>
+        <h3>很遗憾没中奖</h3>
+        <p>继续努力</p>
+    <?php } ?>
+    
+    <a href="<?php echo $sMyCashPageUrl;?>" class="look_btn">查看已获取现金</a>
+</section>
+<section class="loupan_event">
+    <ul>
+        <li>
+            <a href="<?php echo $sJingXuanTeJiaPageUrl;?>">
+                <h3>精选特价楼盘</h3>
+                <p>好房直降&nbsp;&nbsp;低至95折</p>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo $sJingGuanYiJuPageUrl;?>">
+                <h3>景观宜居楼盘</h3>
+                <p>拒绝雾霾&nbsp;&nbsp;自由呼吸</p>
+            </a>
+        </li>
+        <li>
+            <a href="<?php echo $sJingXuanZhongXinPageUrl;?>">
+                <h3>精选中心楼盘</h3>
+                <p>城市繁华&nbsp;&nbsp;一步之遥</p>
+            </a>
+        </li>
+    </ul>
+</section>
+
+<a class="back" href="javascript:history.go(-1);">返回</a>
+
+<?php $this->component('/common/footer');?>
