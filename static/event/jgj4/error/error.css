@@ -1,0 +1,44 @@
+﻿@fontsize:28rem;
+/*通用样式*/
+body {
+	margin: 0 auto;
+	font-family: Helvetica;
+	font-size: 12/@fontsize;
+}
+img {
+	display: block;
+	width: 100%;
+}
+a {
+	display: inline-block;
+	width: 100%;
+}
+.hide {
+	display: none !important;
+}
+.page_content{
+    text-align: center;
+    padding:0 60/@fontsize;
+}
+.error_pic{
+    width:133/@fontsize;
+    height:113/@fontsize;
+    background: url('error.png') no-repeat;
+    background-size: 100% 100%;
+    margin:120/@fontsize auto 17/@fontsize;
+}
+.error_text{
+    color:#666666;
+    font-size: 15/@fontsize;
+    line-height: 24/@fontsize;
+}
+.back_main_btn{
+    color:#fff;
+    font-size: 17/@fontsize;
+    display: block;
+    height:44/@fontsize;
+    border-radius: 22/@fontsize;
+    line-height: 44/@fontsize;
+    background: #f64040;
+    margin-top: 38/@fontsize;
+}

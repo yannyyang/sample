@@ -1,0 +1,48 @@
+.ui-input-wrap{
+	display: inline-block;
+	width: 180px;
+}
+.input-number-button{
+	width: 35px;
+	border: 1px solid #fe770f;
+	color: #fe770f;
+	vertical-align: middle;
+	height: 35px;
+	font: 15px/0 'Verdana';
+	text-align: center;
+	border-radius: 4px;
+	outline: 0;
+    background-color: #fff;
+}
+
+.input-number-disable{
+	border: 1px solid #999;
+	cursor: initial;
+	background: #fff;
+	color: #999;
+}
+
+.input-origin-button{
+	width: 80px;
+	border-radius: 4px;
+	outline: 0;
+	font-size: 15px;
+	height: 35px;
+	line-height: 35px;
+	border: 1px solid #ccc;
+	background-color: #ddd;
+	text-align: center;
+	vertical-align: middle;
+	margin: 0 3%;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@media only screen and (max-width:320px){
+	.input-number-button{
+		font-size: 1.6rem;
+	}
+	.input-origin-button{
+		font-size: 1.2rem;
+	}
+}

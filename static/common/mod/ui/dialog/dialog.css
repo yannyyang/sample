@@ -1,0 +1,86 @@
+.ui2-dialog-wraper-uncustom{
+    background: #fff;
+    box-shadow: 0px 0px 5px 1px #000;
+    padding: 2px 10px;
+    display: inline-block;
+    border-radius: 5px;
+    font-family: Helvetica Neue,Hiragino Sans GB,Microsoft Yahei,Simhei,sans-serif;
+}
+
+.ui2-dialog-wraper{
+	-moz-user-select: none;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+    display: none;
+    z-index: 10000;
+}
+
+:root .ui2-dialog-wraper-uncustom{
+    border: 0px;
+}
+
+.ui2-dialog-wraper-uncustom a:hover{
+    text-decoration: none;
+}
+
+.ui2-dialog-wraper-uncustom .ui2-dialog-header{
+	border-bottom: 1px solid #c4c5c6;
+    display: block;
+}
+
+.ui2-dialog-wraper-uncustom .ui2-dialog-title{
+    height: 33px;
+    display: block;
+    line-height: 33px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.ui2-dialog-wraper-uncustom .ui2-dialog-header-nob{
+    border: 0px;
+}
+
+.ui2-dialog-wraper-uncustom .ui2-dialog-header-nob .ui2-dialog-title{
+    display: none;
+}
+
+.ui2-dialog-wraper-uncustom .ui2-dialog-close{
+    background: url(./images/close.png?__inline);
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    position: absolute;
+    right: -13px;
+    top: -13px;
+}
+
+.ui2-dialog-wraper-uncustom .ui2-dialog-content{
+	padding: 10px 0px;
+    min-width: 50px;
+    overflow: hidden;
+    position: relative;
+}
+
+.ui2-dialog-wraper-uncustom .ui2-dialog-buttons{
+	text-align: center;
+}
+
+.ui2-dialog-wraper-uncustom .ui2-dialog-button{
+    cursor: pointer;
+    border: 0px;
+    margin: 10px;
+    padding: 0px 5px;
+    border-radius: 2px;
+    background-color: #f5692f;
+    color: #FFFFFF;
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    width: 35%;
+}
+
+.ui2-dialog-wraper-uncustom .ui2-dialog-button:hover{
+    color: #fff;
+}

@@ -1,0 +1,40 @@
+.ui-tips-success, .ui-tips-error, .ui-tips-loading, .ui-tips-warn{
+    height: 35px;
+    line-height: 35px;
+    padding: 0px 10px 0px 25px;
+    font-weight: bold;
+    background-image: url('./images/success.png');
+    background-position: 5px center;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+.ui-tips-loading{
+    background-image: url('./images/loading.gif');
+}
+
+.ui-tips-error{
+    background-image: url('./images/error.png');
+}
+
+.ui-tips-warn{
+    background-image: url('./images/warn.png');
+}
+
+.ui-tips .ui-dialog-content{
+    padding: 10px 5px;
+    text-align: center;
+}
+
+.ui-tips .ui-dialog-scroll{
+    display: inline;
+}
+
+.ui-tips{
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
+    opacity: 0.8;
+    background: #000;
+    color: white;
+}

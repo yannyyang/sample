@@ -1,0 +1,96 @@
+body{
+	padding-bottom: 50rem/28;
+}
+a{
+    display: inline-block;
+    text-align: center;
+}
+.result{
+    padding: 36rem/28 0 0 36rem/28;
+    height: 126rem/28;
+    border:1px solid #d7d7d7;
+    span{
+        float: left;
+        width: 90rem/28;
+        height: 90rem/28;
+        margin-right: 20rem/28;
+        &.suc_icon{
+            background: url(./imgs/suc_icon.png) no-repeat;
+            background-size: cover;
+        }
+        &.fail_icon{
+            background: url(./imgs/fail_icon.png) no-repeat;
+            background-size: cover;
+        }
+    }
+    h3{
+        color: #262626;
+        font-size: 22rem/28;
+        line-height: 29rem/28;
+        font-weight: bold;
+    }
+    p{
+        color: #666;
+        font-size: 15rem/28;
+        line-height: 30rem/28;
+        i{
+            color: #f64040; 
+        }
+    }
+    .look_btn{
+        width: 123rem/28;
+        height: 29rem/28;
+        line-height: 29rem/28;
+        font-size: 14rem/28;
+        border:1px solid #f64040;
+        color: #f64040;
+        border-radius: 40px;
+        margin-top: 10rem/28;
+    }
+}
+.loupan_event{
+    padding: 24rem/28 16rem/28 8rem/28;
+    li{
+        width: 343rem/28;
+        height: 110rem/28;
+        background: url(../imgs/banner1.jpg) no-repeat;
+        background-size: cover;
+        color: #fff;
+        text-align: center;
+        margin-bottom: 16rem/28;
+        &:nth-child(2){
+            background: url(../imgs/banner2.jpg) no-repeat;
+            background-size: cover; 
+        }
+        &:nth-child(3){
+            background: url(../imgs/banner3.jpg) no-repeat;
+            background-size: cover; 
+        }
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding-top: 17rem/28;
+            box-sizing:border-box;
+        }
+        h3{
+            font-size: 24rem/28;
+            line-height: 47rem/28;
+        }
+        p{
+            font-size: 16rem/28;
+        }
+    }
+}
+
+.back{
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	color: #fff;
+	width: 100%;
+	height: 50rem/28;
+	line-height: 50rem/28;
+	background: #f64040;
+	font-size: 17rem/28;
+}
